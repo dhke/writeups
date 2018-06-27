@@ -19,7 +19,7 @@ We put the jail into a private network behind a local host NAT
 	# if you need more IP addresses for the jail,
 	# just add more aliases.
 	sysrc cloned_interfaces="lo1"
-	sysrc ifconfig_lo1_alias="inet 10.0.0.1 netmask 255.255.255.240"
+	sysrc ifconfig_lo1_alias0="inet 10.0.0.1 netmask 255.255.255.240"
 
 	# start the interface
 	service netif start lo1
