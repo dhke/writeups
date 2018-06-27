@@ -1,4 +1,6 @@
-This is based on [Torsten Zuehlsdorff's excellent writeup](https://github.com/t-zuehlsdorff/gitlabhq/blob/master/doc/install/installation-freebsd.md) for installing Gitlab CE from ports.
+This is based on 
+[Matthias Fechner's](https://gitlab.fechner.net/mfechner/Gitlab-docu/blob/master/install/10.7-freebsd.md)
+[Torsten Zuehlsdorff's](https://github.com/t-zuehlsdorff/gitlabhq/blob/master/doc/install/installation-freebsd.md) writeups for installing Gitlab CE from ports.
 
 ## Host setup for the jail
 
@@ -6,7 +8,6 @@ Set the required sysctls:
 
     # /etc/sysctl.conf
     security.jail.sysvipc_allowed=1
-
 
 ## Preparing the host's network
 
@@ -64,21 +65,7 @@ secured your gitlab installation.
 
 	iocage create -r "${JAIL_RELEASE}" -n gitlab ip4_addr=10.0.0.1 allow_sysvipc=1
 
-## Setup PostgreSQL
+As for the remainer, follow one of the existing instructions
 
-    iocage console gitlab
-	pkg install postgresql95-server 
-	service postgresql initdb
-	service postgresql start
-
-	# temporarily make git superuser on the database.
-	# make sure to drop this privileges later.
-	createuser -s git
-	createdb -O git gitlabhq_production
-	
-	# gitlab needs [pg_trgm](https://www.postgresql.org/docs/9.5/static/pgtrgm.html), enable it.
-	psql -U git -d gitlabhq_production -c 'CREATE EXTENSION pg_trgm';
-
-As for the remainer, follow Torsten Zuehlsdorff's writeup:
-
-https://github.com/t-zuehlsdorff/gitlabhq/blob/master/doc/install/installation-freebsd.md
+* https://gitlab.fechner.net/mfechner/Gitlab-docu/blob/master/install/10.7-freebsd.md
+* https://github.com/t-zuehlsdorff/gitlabhq/blob/master/doc/install/installation-freebsd.md
