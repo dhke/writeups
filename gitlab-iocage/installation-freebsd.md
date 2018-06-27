@@ -1,5 +1,6 @@
 This is based on 
 [Matthias Fechner's](https://gitlab.fechner.net/mfechner/Gitlab-docu/blob/master/install/10.7-freebsd.md)
+and
 [Torsten Zuehlsdorff's](https://github.com/t-zuehlsdorff/gitlabhq/blob/master/doc/install/installation-freebsd.md) writeups for installing Gitlab CE from ports.
 
 ## Host setup for the jail
